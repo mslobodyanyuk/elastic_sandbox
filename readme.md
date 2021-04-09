@@ -20,7 +20,9 @@ Now(`9.04.2021`), current versions of `Elasticsearch`( `7.12.0` OR `6.8.15` ).
 `In Terminal:`
 
 	docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.12.0
+	
 OR	
+
 	docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.8.15
 
 `In another Terminal:`
@@ -129,6 +131,7 @@ _- "error":"Content-Type header [text/plain] is not supported","status":406}_
 - SET `Headers` under `Request`:
 
 	KEY 			VALUE	
+	
 	Content-type 	application/json
 	
 ![screenshot of sample]( https://github.com/mslobodyanyuk/elastic_sandbox/blob/master/public/images/1elastic_sandbox_and_lcs/postman/2.png )
@@ -188,7 +191,7 @@ GET blogs/_search?q=content:( ingest AND nodes )
 }
 ```
 
-	- `"slop"` - "jump over", IF it is necessary to indicate that there can be a word between.
+	- "slop" - "jump over", IF it is necessary to indicate that there can be a word between.
 
 ```
 {
@@ -251,7 +254,7 @@ GET blogs/_search?q=content:( ingest AND nodes )
 }
 ```
 
-	- `"should"` - Higher priority with author `"shay banon"`- higher `score`.
+	- "should" - Higher priority with author "shay banon"- higher "score".
 
 ![screenshot of sample]( https://github.com/mslobodyanyuk/elastic_sandbox/blob/master/public/images/4lcs/10.png )
 
