@@ -498,7 +498,7 @@ Add age:
 
 ![screenshot of sample]( https://github.com/mslobodyanyuk/elastic_sandbox/blob/master/public/images/2elastic_sandbox_dneman/24.png )
 
-	- As we remember, it was "11" - it was "12".
+	- As we remember, it was "11", became - "12".
 
 ElasticSearch allows you to make so-called "script requests" in a special language called `painless`. - Through it, you can describe how you can "knock" on the object, how you can change it, change it.
 
@@ -521,3 +521,39 @@ ElasticSearch
 Possible Errors:
 
 <https://stackoverflow.com/questions/44678725/cannot-connect-to-the-docker-daemon-at-unix-var-run-docker-sock-is-the-docker>
+
+---
+
+Kemal Yenilmez
+
+[Kemal Yenilmez - Docker Elasticsearch PHP CRUD (4:33)]( https://www.youtube.com/watch?v=2nWSPMmLdeE&ab_channel=KemalYenilmez )
+
+Sources at github:
+	
+<https://github.com/kemalyen/elasticsearch-php-docker>
+
+* ***- Development docker. It contains PHP 7, MariaDb, Elastic search, nginx***
+	
+[(0:45)]( https://youtu.be/2nWSPMmLdeE?t=45 )
+	
+	docker-compose up -d	
+	
+[(1:15)]( https://youtu.be/2nWSPMmLdeE?t=75 )
+
+	composer require elasticsearch/elasticsearch	
+	
+[(2:15)]( https://youtu.be/2nWSPMmLdeE?t=135 ) Indexing a document.
+
+[(2:35)]( https://youtu.be/2nWSPMmLdeE?t=155 ) Searching.
+
+[(3:30)]( https://youtu.be/2nWSPMmLdeE?t=210 ) Updating a document.
+
+[(4:10)]( https://youtu.be/2nWSPMmLdeE?t=250 ) Getting a document.
+
+#### useful links:
+
+Kemal Yenilmez 
+
+[Docker Elasticsearch PHP CRUD]( https://www.youtube.com/watch?v=2nWSPMmLdeE&ab_channel=KemalYenilmez )
+
+<https://github.com/kemalyen/elasticsearch-php-docker>
