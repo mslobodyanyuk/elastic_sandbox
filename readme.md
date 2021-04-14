@@ -557,3 +557,94 @@ Kemal Yenilmez
 [Docker Elasticsearch PHP CRUD]( https://www.youtube.com/watch?v=2nWSPMmLdeE&ab_channel=KemalYenilmez )
 
 <https://github.com/kemalyen/elasticsearch-php-docker>
+
+---
+
+Izweb Technologies
+
+[Izweb Technologies - Docker Images - ElasticSearch (6:36)]( https://www.youtube.com/watch?v=4SGUox3ZTe0&ab_channel=IzwebTechnologies ) 
+
+In this video you are going to learn about ElasticSearch on Docker.
+
+a powerful open source search and analytics engine that makes data easy to explore.
+an open source distributed, RESTful search and analytics engine capable of solving a growing number of use cases.
+a database that stores, retrieves, and manages document-oriented and semi-structured data
+When you use Elasticsearch, you store data in JSON document form. Then, you query them for retrieval...
+
+<https://www.elastic.co/>
+
+[(2:20)]( https://youtu.be/4SGUox3ZTe0?t=140 )
+
+<https://labs.play-with-docker.com/>
+
+[(3:00)]( https://youtu.be/4SGUox3ZTe0?t=180 )
+
+	docker run -d -p 9200:9200 -e "discovery.type=single-node" \ -v esdata:/usr/share/elasticsearch/data \ docker.elastic.co/elasticsearch/elasticsearch:6.8.15
+
+![screenshot of sample]( https://github.com/mslobodyanyuk/elastic_sandbox/blob/master/public/images/4elastic_sandbox_izweb/1.png )
+
+[(3:45)]( https://youtu.be/4SGUox3ZTe0?t=225 )
+
+	docker ps
+
+![screenshot of sample]( https://github.com/mslobodyanyuk/elastic_sandbox/blob/master/public/images/4elastic_sandbox_izweb/2.png )
+
+[(3:55)]( https://youtu.be/4SGUox3ZTe0?t=235 ) Usage - Check cluster health.
+
+	curl http://localhost:9200/_cluster/health?pretty
+
+![screenshot of sample]( https://github.com/mslobodyanyuk/elastic_sandbox/blob/master/public/images/4elastic_sandbox_izweb/3.png )	
+
+[(4:30)]( https://youtu.be/4SGUox3ZTe0?t=270 ) Usage - Create an index.
+
+	curl -X PUT "localhost:9200/customer?pretty"
+	
+![screenshot of sample]( https://github.com/mslobodyanyuk/elastic_sandbox/blob/master/public/images/4elastic_sandbox_izweb/4.png )	
+		
+[(4:45)]( https://youtu.be/4SGUox3ZTe0?t=285 ) And let's add a document to this index.
+
+	curl -X PUT "localhost:9200/customer/_doc/1?pretty" \ -H 'Content-Type: application/json' -d '{ "name" : "Mark Heath" }'
+
+Error:	
+	
+![screenshot of sample]( https://github.com/mslobodyanyuk/elastic_sandbox/blob/master/public/images/4elastic_sandbox_izweb/5.png )
+
+<https://discuss.elastic.co/t/regarding-to-add-a-header-h-content-type-application-json/198363>
+
+	curl -XPUT "localhost:9200/customer/_doc/1?pretty" -H 'Content-Type: application/json' -d ' { "name" : "Mark Heath" , "settings" : { "index.mapping.total_fields.limit" : "2000" } }'
+	
+![screenshot of sample]( https://github.com/mslobodyanyuk/elastic_sandbox/blob/master/public/images/4elastic_sandbox_izweb/6.png )		
+
+![screenshot of sample]( https://github.com/mslobodyanyuk/elastic_sandbox/blob/master/public/images/4elastic_sandbox_izweb/7.png )
+
+[(5:00)]( https://youtu.be/4SGUox3ZTe0?t=300 ) Usage - View documents in the index.
+
+	curl localhost:9200/customer/_search?pretty
+
+![screenshot of sample]( https://github.com/mslobodyanyuk/elastic_sandbox/blob/master/public/images/4elastic_sandbox_izweb/8.png )
+
+[(5:35)]( https://youtu.be/4SGUox3ZTe0?t=335 ) Usage - Check our index is still present.
+
+	curl -XPUT "localhost:9200/customer/_doc/2?pretty" -H 'Content-Type: application/json' -d ' { "name" : "Steph Heath" }'
+	
+![screenshot of sample]( https://github.com/mslobodyanyuk/elastic_sandbox/blob/master/public/images/4elastic_sandbox_izweb/9.png )
+
+[(6:05)]( https://youtu.be/4SGUox3ZTe0?t=365 )	
+
+	curl localhost:9200/customer/_search?pretty	
+
+![screenshot of sample]( https://github.com/mslobodyanyuk/elastic_sandbox/blob/master/public/images/4elastic_sandbox_izweb/10.png )
+
+#### useful links:	
+
+Izweb Technologies
+
+[Docker Images - ElasticSearch]( https://www.youtube.com/watch?v=4SGUox3ZTe0&ab_channel=IzwebTechnologies )
+
+<https://www.elastic.co/>
+
+<https://labs.play-with-docker.com/>
+
+Possible Errors:
+
+<https://discuss.elastic.co/t/regarding-to-add-a-header-h-content-type-application-json/198363>
