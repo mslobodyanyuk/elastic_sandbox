@@ -648,3 +648,88 @@ Izweb Technologies
 Possible Errors:
 
 <https://discuss.elastic.co/t/regarding-to-add-a-header-h-content-type-application-json/198363>
+
+---
+
+Just me and Opensource
+
+[Just me and Opensource - [ Elasticsearch 6 ] Running Elasticsearch v7.1.1 in Docker containers (13:05)]( https://www.youtube.com/watch?v=PWUuyDrqvt0&ab_channel=JustmeandOpensource )
+
+In this video, I will show you how to run elasticsearch and Kibana version 7.1.1 in Docker containers.
+
+Github:
+
+<https://github.com/justmeandopensource/elk>
+
+Elasticsearch Official site:
+
+<https://www.elastic.co/>
+
+[(1:45)]( https://youtu.be/PWUuyDrqvt0?t=105 )
+
+	git clone https://github.com/justmeandopensource/elk
+	
+[(2:25)]( https://youtu.be/PWUuyDrqvt0?t=145 ) Single container `elastic 6.5.4` and `Kibana` single container:	
+
+	docker-compose.yml
+
+[(3:45)]( https://youtu.be/PWUuyDrqvt0?t=225 ) Single container `elastic 7.1.1` and `Kibana` single container. There's additional options for 7.1.1 version.
+
+[(5:30)]( https://youtu.be/PWUuyDrqvt0?t=330 )
+
+	docker-compose up -d
+	
+[(7:10)]( https://youtu.be/PWUuyDrqvt0?t=430 ) See the docker-compose logs files to see the `elastic` and `Kibana` is getting started:
+
+	cd elk/docker
+	
+	docker-compose logs -f
+
+	docker-compose logs -f elasticsearch
+	
+[(7:40)]( https://youtu.be/PWUuyDrqvt0?t=460 ) - Elasticsearch excited with code 78. 
+
+The vital step you must do is to set the kernel parameter:
+
+	sysctl -w vm.max_map_count=262144
+
+[(8:25)]( https://youtu.be/PWUuyDrqvt0?t=505 ) To take effect immediately:
+	
+	sudo sysctl -w vm.max_map_count=262144
+	
+ - IF you want to make this change permanent you have to write it to the `/etc/sysctl.conf` OR `/etc/sysctl.d/any_name_you_can_give`.
+	
+[(9:05)]( https://youtu.be/PWUuyDrqvt0?t=545 )
+
+	docker-compose restart elasticsearch
+	
+[(9:20)]( https://youtu.be/PWUuyDrqvt0?t=560 )
+	
+	docker-compose logs -f elasticsearch
+
+Cluster health status change from `yellow` to `green`. - It should be working.
+
+	docker-compose ps
+	sudo netstat -nltp
+
+[(10:00)]( https://youtu.be/PWUuyDrqvt0?t=600 ) `In Browser`:
+	
+	localhost:5601
+	
+	- `Kibana` dashboard loading.
+	
+#### useful links:	
+
+Just me and Opensource
+
+[[ Elasticsearch 6 ] Running Elasticsearch v7.1.1 in Docker containers]( https://www.youtube.com/watch?v=PWUuyDrqvt0&ab_channel=JustmeandOpensource )
+
+<https://github.com/justmeandopensource/elk>
+
+Elasticsearch Official site:
+
+<https://www.elastic.co/>
+
+Possible Errors:
+
+[(7:40) - Elasticsearch excited with code 78.]( https://youtu.be/PWUuyDrqvt0?t=460 )
